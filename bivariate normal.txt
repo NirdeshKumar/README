@@ -1,0 +1,14 @@
+import jax.numpy as jnp
+from jax import random
+import seaborn as sns
+
+
+key = random.PRNGKey(0)
+x = random.normal(key, (1000,))
+sns.distplot(x)
+plt.hist(x, density=True, bins=25, rwidth=0.7) 
+plt.ylabel('Probability')
+plt.xlabel('Data');
+
+tips = sns.load_dataset("tips")
+sns.jointplot(data=tips, x="total_bill", y="tip",kind="reg")
